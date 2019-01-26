@@ -8,10 +8,11 @@ h1{font-family: "Arial"; color: white; font-size: 40px;}
 h2{font-family: "Arial"; color: white; font-size: 35px;}
 div{
   background-color: grey;
-  width: 250px;
-  height: 150px;
+  width: 300px;
+  height: 200px;
   margin-left:auto;
   margin-right:auto;
+  word-wrap: break-word;
 }
 </style>
 <script src = "http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -40,6 +41,9 @@ div{
     <th style = "width:33.33%">
         <br>
         <div>
+            <h4>Subject Code: </h4>
+            <h4>Course Number: </h4>
+            <h4>Prerequisites: </h4>
             <form id = "myform">
             Already Taken <input type = "checkbox" name = "checkfield" id = "g0-01" />
             </form>
@@ -48,6 +52,9 @@ div{
     <th style = "width:33.33%">
         <br>
         <div>
+            <h4>Subject Code: </h4>
+            <h4>Course Number: </h4>
+            <h4>Prerequisites: </h4>
             <form id = "myform">
             Already Taken <input type = "checkbox" name = "checkfield" id = "g0-01" />
             </form>
@@ -61,24 +68,11 @@ div{
     
 <script>
     $("input[type='checkbox']").change(function() {
-        let parent = $(this).parent()
-        console.log(parent())
-    })
-    
-    function myFunc(event)
-    {
-        console.log(event)
-        if(checkboxElem.checked)
-        {
-            $("#myform").fadeTo("fast",0.5);
-            $("#box").fadeTo("fast",0.5)
-            
-        }
+        let el= $(this);
+        if(this.checked)
+            el.parent().parent().fadeTo('fast', 0.5);
         else
-        {
-            $("#myform").fadeTo("fast", 1);       
-        }
-        
-    }
+            el.parent().parent().fadeTo('fast', 1);
+    })
 </script>
-</html>
+</html>,
