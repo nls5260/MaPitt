@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>MaPitt</title>
+
+<style>
+body,h3,h4,h5,h6 {font-family: "arial"; color: white}
+h1{font-family: "Arial"; color: white; font-size: 40px;}
+h2{font-family: "Arial"; color: white; font-size: 35px;}
+div{
+  background-color: grey;
+  width: 250px;
+  height: 150px;
+  margin-left:auto;
+  margin-right:auto;
+}
+</style>
+<script src = "http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    function myFunc(checkboxElem)
+    {
+        if(checkboxElem.checked)
+        {
+            $("#myform").fadeTo("fast",0.5);
+            $("#box").fadeTo("fast",0.5)
+            
+        }
+        else
+        {
+            $("#myform").fadeTo("fast", 1);       
+        }
+        
+    }
+</script>
+<body  class="background" style="background-color: rgb(58, 169, 196); padding: 20px 10px">
+<h1>Classes Taken</h1>
+
+<table style = "width:100%">
+    <tr>
+    <th style = "width:33.33%"><h2>Major</h2></th>
+    <th style = "width:33.33%"><h2>Electives</h2></th>
+    <th style = "width:33.33%"><h2>Misc</h2></th>
+    </tr>
+    <tr>
+    <th style = "width:33.33%">
+        <br>
+        <div id = "box">
+            <form id = "myform">
+            Already Taken <input type = "checkbox" name = "checkfield" id = "inputId" onchange="myFunc(this)"/>
+            </form>
+        </div>
+    </th>
+    <th style = "width:33.33%">
+        <br>
+        <div>
+            <form id = "myform">
+            Already Taken <input type = "checkbox" name = "checkfield" id = "g0-01" onchange="myFunc(this)"/>
+            </form>
+        </div>
+    </th> 
+    <th style = "width:33.33%">
+        <br>
+        <div>
+            <form id = "myform">
+            Already Taken <input type = "checkbox" name = "checkfield" id = "g0-01" onchange="myFunc(this)"/>
+            </form>
+        </div>
+    </th>
+    </tr>
+    
+</table>
+
+</body>
+    
+
+</html>
