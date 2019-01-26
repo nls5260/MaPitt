@@ -18,13 +18,3 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
-
-class Course(models.Model):
-    courseNumber = models.CharField(max_length=4)
-    prereqs = models.ManyToManyField(Course)
-
-    def wasTaken(self):
-        taken =
-
-    # To iterate:
-    # for pr in course.prereqs.all
