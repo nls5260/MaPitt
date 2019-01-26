@@ -17,4 +17,14 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.question_text
+        return self.choice_text
+
+class Course(models.Model):
+    courseNumber = models.CharField(max_length=4)
+    prereqs = models.ManyToManyField(Course)
+
+    def wasTaken(self):
+        taken =
+
+    # To iterate:
+    # for pr in course.prereqs.all
