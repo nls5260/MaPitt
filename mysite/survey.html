@@ -1,0 +1,90 @@
+
+<html>
+    <body style="background-color: rgb(58, 169, 196);">
+        <h2 style = "color: white"><center>What Should I Major In?</center></h2>
+        <form method="post" enctype="text/plain">
+            
+            <p><b>Question 1: </b></p> 
+            <p><b>What interests you?</b></p>
+            <input type="radio" name="ques1" value="personal"/> the stock market  <br>
+            <input type="radio" name="ques1" value="tv"/> designing an app <br> 
+            <input type="radio" name="ques1" value="paper"/> helping people<br>
+            <input type="radio" name="ques1" value="flyer"/> reading and painting<br>
+            
+            <p><b>Question 2: </b></p>
+            <p><b>What kind of thought process do you have?</b></p>
+            <input type="radio" name="ques2" value="personal"/> analytical<br>
+            <input type="radio" name="ques2" value="tv"/> inquisitive<br>
+            <input type="radio" name="ques2" value="paper"/> systematic<br>
+            <input type="radio" name="ques2" value="flyer"/> creative<br>
+            
+            <p><b>Question 3: </b></p>
+            <p><b>I am interested in how ___ works.</b></p>
+            <input type="radio" name="ques3" value="personal"/> running a business<br>
+            <input type="radio" name="ques3" value="tv"/> physical objects/computers<br>
+            <input type="radio" name="ques3" value="paper"/> living things<br>
+            <input type="radio" name="ques3" value="flyer"/> language and people<br>
+            
+            <br><br> 
+            
+            <input type="reset" value="Reset" name="1" id="2" />
+            <!--Creates a submit button which enters the values entered b the user into the form validation sections-->
+            <input type="submit" id="Submit" onclick="validation()" />
+        </form>
+        <!--Creates the form validation selection-->
+        <h2>Major Path Recommendation</h2>
+        <span id="span1"></span> <br><br>
+       
+    </body>
+    <script type="text/javascript">
+            function validation() {
+                var counter = [0,0,0,0];
+                
+                var q1 = document.getElementsByName("ques1");
+                var q2 = document.getElementsByName("ques2");
+                var q3 document.getElementsByName("ques3");
+                
+                for(int i = 0; i < 4; i++)
+                {
+                    if(q1[i].checked == true)
+                    {
+                        var temp = counter[i];
+                        temp++;
+                        temp = counter[i]
+                        
+                    }
+                    if(q2[i].checked == true)
+                    {
+                        var temp = counter[i];
+                        temp++;
+                        temp = counter[i]
+                    }
+                    if(q3[i].checked == true)
+                    {
+                        var temp = counter[i];
+                        temp++;
+                        temp = counter[i];
+                    }
+                }
+                
+                var maxnum = Math.max.apply(null,counter);
+                if(counter[0] == maxnum)
+                {
+                    document.getElementById("span1").innerHTML = "You should look into the College of Business"    
+                }
+                if(counter[1] == maxnum)
+                {  
+                    document.getElementById("span1").innerHTML = "You should look into Swanson School of Engineering and the School of Computing and Information";
+                }
+                if(counter[2] == maxnum)
+                {
+                   document.getElementById("span1").innerHTML = "You should look into the pre-med and nursing track";     
+                }
+                if(counter[3] == maxnum)
+                {    
+                    document.getElementById("span1").innerHTML = "You should look into the School of Arts and Sciences";
+                }
+            }
+        </script>
+</html>
+
