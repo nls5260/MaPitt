@@ -3,7 +3,17 @@
 {% if course_list %}
     <ul>
     {% for course in course_list %}
-        <p>{{course}}</p>
+        <h2>{{course}}</h2>
+
+        {% if course.prereqs.all %}
+            <p>Preq:</p>
+               <ul>
+               {% for preq in course.prereqs.all %}
+                  <li>{{preq.subject}} {{preq.courseNumber}}</li>
+               {% endfor %}
+               </ul>
+        {% endif %}
+
     {% endfor %}
     </ul>
 {% else %}

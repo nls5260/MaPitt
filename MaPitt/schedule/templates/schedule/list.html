@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>MaPitt</title>
+
+<style>
+body,h3,h4,h5,h6 {font-family: "arial"; color: white}
+h1{font-family: "Arial"; color: white; font-size: 40px;}
+h2{font-family: "Arial"; color: white; font-size: 35px;}
+div{
+  background-color: grey;
+  width: 300px;
+  height: 200px;
+  margin-left:auto;
+  margin-right:auto;
+  word-wrap: break-word;
+}
+</style>
+<script src = "http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<body  class="background" style="background-color: rgb(58, 169, 196); padding: 20px 10px">
+<h1>Classes Taken</h1>
+
+<table style = "width:100%">
+    <tr>
+    <th style = "width:33.33%"><h2>Major</h2></th>
+    <th style = "width:33.33%"><h2>Electives</h2></th>
+    <th style = "width:33.33%"><h2>Misc</h2></th>
+    </tr>
+    <tr>
+    <th style = "width:33.33%">
+        <br>
+        {% for course in course_list %}
+            {% if course.requiredForMajor %}
+           <div id = "box">
+               <h4>{{course.subject}} {{course.courseNumber}}</h4>
+               <h4>{{course.courseName}}</h4>
+               {% if course.prereqs.all %}
+                   <h4>Prereqs:</h4>
+                      <ul>
+                      {% for preq in course.prereqs.all %}
+                         <li>{{preq.subject}} {{preq.courseNumber}}</li>
+                      {% endfor %}
+                      </ul>
+               {% endif %}
+               {% if course.coreqs.all %}
+                   <h4>Coreqs:</h4>
+                      <ul>
+                      {% for coq in course.coreqs.all %}
+                         <li>{{coq.subject}} {{coq.courseNumber}}</li>
+                      {% endfor %}
+                      </ul>
+               {% endif %}
+               <form id = "myform">
+               Already Taken <input type = "checkbox" name = "checkfield" id = "inputId" />
+               </form>
+           </div>
+           {% endif %}
+        {% endfor %}
+    </th>
+    <th style = "width:33.33%">
+        <br>
+        {% for course in course_list %}
+            {% if course.isElective %}
+           <div id = "box">
+               <h4>{{course.subject}} {{course.courseNumber}}</h4>
+               <h4>{{course.courseName}}</h4>
+               {% if course.prereqs.all %}
+                   <h4>Prereqs:</h4>
+                      <ul>
+                      {% for preq in course.prereqs.all %}
+                         <li>{{preq.subject}} {{preq.courseNumber}}</li>
+                      {% endfor %}
+                      </ul>
+               {% endif %}
+               {% if course.coreqs.all %}
+                   <h4>Coreqs:</h4>
+                      <ul>
+                      {% for coq in course.coreqs.all %}
+                         <li>{{coq.subject}} {{coq.courseNumber}}</li>
+                      {% endfor %}
+                      </ul>
+               {% endif %}
+               <form id = "myform">
+               Already Taken <input type = "checkbox" name = "checkfield" id = "inputId" />
+               </form>
+           </div>
+           {% endif %}
+        {% endfor %}
+    </th>
+    <th style = "width:33.33%">
+        <br>
+        {% for course in course_list %}
+            {% if not course.requiredForMajor and not course.isElective %}
+           <div id = "box">
+               <h4>{{course.subject}} {{course.courseNumber}}</h4>
+               <h4>{{course.courseName}}</h4>
+               {% if course.prereqs.all %}
+                   <h4>Prereqs:</h4>
+                      <ul>
+                      {% for preq in course.prereqs.all %}
+                         <li>{{preq.subject}} {{preq.courseNumber}}</li>
+                      {% endfor %}
+                      </ul>
+               {% endif %}
+               {% if course.coreqs.all %}
+                   <h4>Coreqs:</h4>
+                      <ul>
+                      {% for coq in course.coreqs.all %}
+                         <li>{{coq.subject}} {{coq.courseNumber}}</li>
+                      {% endfor %}
+                      </ul>
+               {% endif %}
+               <form id = "myform">
+               Already Taken <input type = "checkbox" name = "checkfield" id = "inputId" />
+               </form>
+           </div>
+           {% endif %}
+        {% endfor %}
+    </th>
+    </tr>
+
+</table>
+
+</body>
+
+<script>
+    $("input[type='checkbox']").change(function() {
+        let el= $(this);
+        if(this.checked)
+            el.parent().parent().fadeTo('fast', 0.5);
+        else
+            el.parent().parent().fadeTo('fast', 1);
+    })
+</script>
+</html>
