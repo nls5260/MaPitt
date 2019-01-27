@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>MaPitt</title>
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "arial"; color: white; font-size: 40px; text-align: center}
+h1{font-family: "Arial"; color: white}
+.titletext {
+    /*padding-left: 50px;*/
+    }
+.button {
+    background-color: #F7732C; 
+    border: none;
+    border-radius: 10px;
+    color: white; 
+    padding: 15px 32px;
+    text-align: center; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    align-self:center;
+    }
+    
+</style>
+
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+ $(document).ready(function()
+    {
+            $("button").click(function()
+            {
+                $("#titletext").fadeOut();
+                $("#titletext2").fadeOut();
+                $("#button1").fadeOut()
+                $("textbox").fadeOut();
+            });
+        });
+</script>
+<body  class="background" style="background-color: rgb(58, 169, 196); padding:100px 10px">
+<h1 class=  "titletext", id = "titletext2" align = "left">What is your Major?</h1>
+<button class="button button1" id = "button1">Computer Science</button>
+<button class = "button button2" id = "button2">Undecided</button>
+<button class = "button button3" id = "button3">Computer Engineering</button>
+</body>
+    
+
+</html>
